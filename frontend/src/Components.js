@@ -171,7 +171,7 @@ const SetupModal = ({ onComplete }) => {
       >
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-white mb-2">
-            Welcome to <span className="text-green-400 glitch-text">EMERGENT</span>
+            Welcome to <span className="text-green-400 glitch-text">RENDER</span>
           </h1>
           <p className="text-gray-300">Let's set up your AI development environment</p>
         </div>
