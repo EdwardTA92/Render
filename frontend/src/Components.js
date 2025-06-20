@@ -464,23 +464,23 @@ const HomePage = ({
   ];
 
   return (
-    <div className="h-full overflow-y-auto p-8">
+    <div className="h-full overflow-y-auto p-4 lg:p-8">
       <motion.div 
-        className="max-w-6xl mx-auto space-y-12"
+        className="max-w-6xl mx-auto space-y-8 lg:space-y-12"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
       >
         {/* Hero Section */}
-        <div className="text-center space-y-8">
+        <div className="text-center space-y-6 lg:space-y-8">
           <motion.div
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
-            className="space-y-4"
+            className="space-y-2 lg:space-y-4"
           >
-            <h1 className="text-6xl font-bold text-white">
+            <h1 className="text-3xl lg:text-6xl font-bold text-white">
               Welcome,
             </h1>
-            <h2 className="text-5xl font-bold text-white">
+            <h2 className="text-2xl lg:text-5xl font-bold text-white">
               What will you build today?
             </h2>
           </motion.div>
@@ -505,12 +505,12 @@ const HomePage = ({
           </div>
 
           {/* Quick Suggestions */}
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-2 lg:gap-4">
             {suggestions.map((suggestion, index) => (
               <motion.button
                 key={index}
                 onClick={() => setSelectedSuggestion(suggestion.text)}
-                className={`suggestion-pill px-4 py-2 rounded-full flex items-center space-x-2 border-2 transition-all ${
+                className={`suggestion-pill px-3 lg:px-4 py-2 rounded-full flex items-center space-x-2 border-2 transition-all text-sm lg:text-base ${
                   selectedSuggestion === suggestion.text
                     ? `border-${suggestion.color}-400 bg-${suggestion.color}-400/20`
                     : 'border-gray-600 hover:border-gray-400'
@@ -518,7 +518,7 @@ const HomePage = ({
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <suggestion.icon size={16} />
+                <suggestion.icon size={14} className="lg:w-4 lg:h-4" />
                 <span className="text-white">{suggestion.text}</span>
               </motion.button>
             ))}
@@ -526,14 +526,14 @@ const HomePage = ({
         </div>
 
         {/* Community Section */}
-        <div className="space-y-8">
+        <div className="space-y-6 lg:space-y-8">
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-white mb-4">From the Community</h3>
-            <div className="flex justify-center space-x-8">
+            <h3 className="text-xl lg:text-2xl font-bold text-white mb-4">From the Community</h3>
+            <div className="flex justify-center space-x-4 lg:space-x-8 overflow-x-auto pb-2">
               {['AI Apps', 'Digital Sidekicks', 'Landing', 'Hack & Play'].map((tab, index) => (
                 <button
                   key={tab}
-                  className={`px-6 py-2 rounded-full transition-all ${
+                  className={`px-4 lg:px-6 py-2 rounded-full transition-all whitespace-nowrap text-sm lg:text-base ${
                     index === 0 
                       ? 'bg-white text-black' 
                       : 'text-gray-400 hover:text-white'
@@ -545,28 +545,28 @@ const HomePage = ({
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             {communityProjects.map((project, index) => (
               <ProjectCard key={index} project={project} />
             ))}
           </div>
 
           <div className="text-center">
-            <button className="glass-button px-8 py-3 rounded-xl">
+            <button className="glass-button px-6 lg:px-8 py-3 rounded-xl text-sm lg:text-base">
               Visit Our Showcase →
             </button>
           </div>
         </div>
 
         {/* CTA Section */}
-        <div className="text-center space-y-8 py-16">
-          <h2 className="text-6xl font-bold text-white">
+        <div className="text-center space-y-6 lg:space-y-8 py-8 lg:py-16">
+          <h2 className="text-3xl lg:text-6xl font-bold text-white">
             Start building with
           </h2>
-          <h3 className="text-6xl font-bold glitch-text text-green-400">
+          <h3 className="text-3xl lg:text-6xl font-bold glitch-text text-green-400">
             EMERGENT TODAY
           </h3>
-          <button className="glass-button-primary px-12 py-4 rounded-2xl text-xl font-semibold">
+          <button className="glass-button-primary px-8 lg:px-12 py-3 lg:py-4 rounded-2xl text-lg lg:text-xl font-semibold">
             Get Started
           </button>
         </div>
