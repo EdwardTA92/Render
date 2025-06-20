@@ -330,22 +330,30 @@ const SetupStep4 = ({ config, setConfig }) => (
 );
 
 // Header Component
-const Header = ({ userConfig, onResetSetup }) => (
+const Header = ({ userConfig, onResetSetup, toggleSidebar, isMobile }) => (
   <motion.header 
     className="fixed top-0 left-0 right-0 z-40 glass-panel border-b border-white/10"
     initial={{ y: -100 }}
     animate={{ y: 0 }}
   >
-    <div className="flex items-center justify-between px-6 py-4">
+    <div className="flex items-center justify-between px-4 lg:px-6 py-4">
       <div className="flex items-center space-x-4">
+        {isMobile && (
+          <button
+            onClick={toggleSidebar}
+            className="glass-button p-2 rounded-lg lg:hidden"
+          >
+            <Home size={20} />
+          </button>
+        )}
         <div className="flex items-center space-x-2">
           <Home size={24} className="text-green-400" />
-          <span className="text-xl font-bold text-white">EMERGENT</span>
+          <span className="text-xl font-bold text-white hidden sm:block">EMERGENT</span>
         </div>
       </div>
       
-      <div className="flex items-center space-x-4">
-        <span className="text-gray-300">Welcome, {userConfig.name}</span>
+      <div className="flex items-center space-x-2 lg:space-x-4">
+        <span className="text-gray-300 text-sm lg:text-base hidden sm:block">Welcome, {userConfig.name}</span>
         <button
           onClick={onResetSetup}
           className="glass-button p-2 rounded-lg"
