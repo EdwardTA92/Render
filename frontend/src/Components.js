@@ -775,12 +775,12 @@ const ChatInput = ({
 
 // Settings Page Component
 const SettingsPage = ({ userConfig, onResetSetup }) => (
-  <div className="h-full overflow-y-auto p-8">
-    <div className="max-w-4xl mx-auto space-y-8">
-      <h1 className="text-4xl font-bold text-white">Settings</h1>
+  <div className="h-full overflow-y-auto p-4 lg:p-8">
+    <div className="max-w-4xl mx-auto space-y-6 lg:space-y-8">
+      <h1 className="text-2xl lg:text-4xl font-bold text-white">Settings</h1>
       
-      <div className="glass-panel p-6 rounded-2xl">
-        <h2 className="text-2xl font-semibold text-white mb-4">Profile</h2>
+      <div className="glass-panel p-4 lg:p-6 rounded-2xl">
+        <h2 className="text-lg lg:text-2xl font-semibold text-white mb-4">Profile</h2>
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-300 mb-2">Name</label>
@@ -788,14 +788,14 @@ const SettingsPage = ({ userConfig, onResetSetup }) => (
               type="text"
               value={userConfig.name}
               readOnly
-              className="glass-input w-full px-4 py-3 rounded-xl text-white"
+              className="glass-input w-full px-3 lg:px-4 py-2 lg:py-3 rounded-xl text-white text-sm lg:text-base"
             />
           </div>
         </div>
       </div>
 
-      <div className="glass-panel p-6 rounded-2xl">
-        <h2 className="text-2xl font-semibold text-white mb-4">API Keys</h2>
+      <div className="glass-panel p-4 lg:p-6 rounded-2xl">
+        <h2 className="text-lg lg:text-2xl font-semibold text-white mb-4">API Keys</h2>
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-300 mb-2">OpenAI</label>
@@ -803,7 +803,7 @@ const SettingsPage = ({ userConfig, onResetSetup }) => (
               type="password"
               value={userConfig.apiKeys.openai}
               readOnly
-              className="glass-input w-full px-4 py-3 rounded-xl text-white"
+              className="glass-input w-full px-3 lg:px-4 py-2 lg:py-3 rounded-xl text-white text-sm lg:text-base"
             />
           </div>
           <div>
@@ -812,31 +812,31 @@ const SettingsPage = ({ userConfig, onResetSetup }) => (
               type="password"
               value={userConfig.apiKeys.anthropic}
               readOnly
-              className="glass-input w-full px-4 py-3 rounded-xl text-white"
+              className="glass-input w-full px-3 lg:px-4 py-2 lg:py-3 rounded-xl text-white text-sm lg:text-base"
             />
           </div>
         </div>
       </div>
 
-      <div className="glass-panel p-6 rounded-2xl">
-        <h2 className="text-2xl font-semibold text-white mb-4">GitHub</h2>
+      <div className="glass-panel p-4 lg:p-6 rounded-2xl">
+        <h2 className="text-lg lg:text-2xl font-semibold text-white mb-4">GitHub</h2>
         <div className="flex items-center space-x-3">
-          <Github size={24} />
-          <span className="text-white">
+          <Github size={20} className="lg:w-6 lg:h-6" />
+          <span className="text-white text-sm lg:text-base">
             {userConfig.githubConnected ? 'Connected' : 'Not connected'}
           </span>
-          {userConfig.githubConnected && <CheckCircle size={20} className="text-green-400" />}
+          {userConfig.githubConnected && <CheckCircle size={16} className="lg:w-5 lg:h-5 text-green-400" />}
         </div>
       </div>
 
-      <div className="glass-panel p-6 rounded-2xl">
-        <h2 className="text-2xl font-semibold text-white mb-4">Local Directory</h2>
-        <p className="text-gray-300">{userConfig.localDirectory || 'Not set'}</p>
+      <div className="glass-panel p-4 lg:p-6 rounded-2xl">
+        <h2 className="text-lg lg:text-2xl font-semibold text-white mb-4">Local Directory</h2>
+        <p className="text-gray-300 text-sm lg:text-base break-all">{userConfig.localDirectory || 'Not set'}</p>
       </div>
 
       <button
         onClick={onResetSetup}
-        className="glass-button-primary px-8 py-4 rounded-xl"
+        className="glass-button-primary px-6 lg:px-8 py-3 lg:py-4 rounded-xl text-sm lg:text-base w-full sm:w-auto"
       >
         Reset Setup
       </button>
