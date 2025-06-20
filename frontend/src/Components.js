@@ -332,12 +332,21 @@ const Header = ({ userConfig, onResetSetup }) => (
 );
 
 // Sidebar Component
-const Sidebar = ({ currentPage, setCurrentPage, tasks }) => (
+const Sidebar = ({ currentPage, setCurrentPage, tasks, isMobile, toggleSidebar }) => (
   <motion.aside 
-    className="w-80 glass-panel border-r border-white/10 p-6"
-    initial={{ x: -300 }}
+    className={`${isMobile ? 'fixed inset-y-0 left-0 z-50 w-80' : 'w-80'} glass-panel border-r border-white/10 p-6 ${isMobile ? 'lg:relative lg:translate-x-0' : ''}`}
+    initial={{ x: isMobile ? -300 : -300 }}
     animate={{ x: 0 }}
   >
+    {isMobile && (
+      <button
+        onClick={toggleSidebar}
+        className="absolute top-4 right-4 glass-button p-2 rounded-lg lg:hidden"
+      >
+        <XCircle size={20} />
+      </button>
+    )}
+    
     <nav className="space-y-2 mb-8">
       {[
         { id: 'home', label: 'Home', icon: Home },
@@ -346,7 +355,10 @@ const Sidebar = ({ currentPage, setCurrentPage, tasks }) => (
       ].map(({ id, label, icon: Icon }) => (
         <button
           key={id}
-          onClick={() => setCurrentPage(id)}
+          onClick={() => {
+            setCurrentPage(id);
+            if (isMobile) toggleSidebar();
+          }}
           className={`w-full flex items-center space-x-3 p-3 rounded-xl transition-all ${
             currentPage === id 
               ? 'bg-green-400/20 text-green-400 border border-green-400/30' 
