@@ -587,12 +587,13 @@ const ProjectCard = ({ project }) => (
         src={project.image} 
         alt={project.title}
         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+        loading="lazy"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
     </div>
-    <div className="p-6">
-      <h4 className="text-lg font-semibold text-white mb-2">{project.title}</h4>
-      <p className="text-gray-300 text-sm line-clamp-3">{project.description}</p>
+    <div className="p-4 lg:p-6">
+      <h4 className="text-base lg:text-lg font-semibold text-white mb-2">{project.title}</h4>
+      <p className="text-gray-300 text-xs lg:text-sm line-clamp-3">{project.description}</p>
     </div>
   </motion.div>
 );
