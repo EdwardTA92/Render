@@ -697,51 +697,60 @@ const ChatInput = ({
     }
   };
 
+  const handleSend = () => {
+    if (inputMessage && inputMessage.trim()) {
+      onSend();
+    }
+  };
+
   return (
     <div {...getRootProps()} className={`relative ${isDragActive ? 'ring-2 ring-green-400 rounded-2xl' : ''}`}>
       <input {...getInputProps()} />
       
       <div className={`glass-panel rounded-2xl border border-white/20 ${
-        size === 'large' ? 'p-6' : 'p-4'
+        size === 'large' ? 'p-4 lg:p-6' : 'p-3 lg:p-4'
       }`}>
-        <div className="flex items-end space-x-4">
-          <div className="flex space-x-2">
+        <div className="flex items-end space-x-2 lg:space-x-4">
+          <div className="flex space-x-1 lg:space-x-2">
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="glass-button p-3 rounded-xl hover:bg-white/10"
+              className="glass-button p-2 lg:p-3 rounded-xl hover:bg-white/10 transition-colors"
+              type="button"
             >
-              <Upload size={20} />
+              <Upload size={18} className="lg:w-5 lg:h-5" />
             </button>
             
             <button
               onClick={toggleRecording}
-              className={`glass-button p-3 rounded-xl transition-colors ${
+              className={`glass-button p-2 lg:p-3 rounded-xl transition-colors ${
                 isRecording ? 'bg-red-500/20 text-red-400' : 'hover:bg-white/10'
               }`}
+              type="button"
             >
-              {isRecording ? <MicOff size={20} /> : <Mic size={20} />}
+              {isRecording ? <MicOff size={18} className="lg:w-5 lg:h-5" /> : <Mic size={18} className="lg:w-5 lg:h-5" />}
             </button>
           </div>
           
-          <div className="flex-1">
+          <div className="flex-1 min-w-0">
             <textarea
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder={placeholder}
               className={`w-full bg-transparent text-white placeholder-gray-400 resize-none outline-none ${
-                size === 'large' ? 'text-lg' : 'text-base'
+                size === 'large' ? 'text-base lg:text-lg' : 'text-sm lg:text-base'
               }`}
               rows={size === 'large' ? 3 : 1}
             />
           </div>
           
           <button
-            onClick={onSend}
-            disabled={!inputMessage.trim()}
-            className="glass-button-primary p-3 rounded-xl disabled:opacity-50"
+            onClick={handleSend}
+            disabled={!inputMessage || !inputMessage.trim()}
+            className="glass-button-primary p-2 lg:p-3 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-105 active:scale-95"
+            type="button"
           >
-            <Send size={20} />
+            <Send size={18} className="lg:w-5 lg:h-5" />
           </button>
         </div>
         
