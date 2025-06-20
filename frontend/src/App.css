@@ -253,10 +253,65 @@
 }
 
 /* Responsive Liquid Glass Adaptations */
+@media (max-width: 1024px) {
+  .glass-panel {
+    backdrop-filter: blur(15px) saturate(160%);
+    -webkit-backdrop-filter: blur(15px) saturate(160%);
+  }
+  
+  /* Hide sidebar on mobile by default */
+  .sidebar-mobile {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .sidebar-mobile.open {
+    transform: translateX(0);
+  }
+}
+
 @media (max-width: 768px) {
   .glass-panel {
     backdrop-filter: blur(15px) saturate(160%);
     -webkit-backdrop-filter: blur(15px) saturate(160%);
+    margin: 0.5rem;
+  }
+  
+  /* Mobile-friendly padding */
+  .mobile-padding {
+    padding: 1rem;
+  }
+  
+  /* Mobile text sizes */
+  .mobile-text-hero {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .mobile-text-sub {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  
+  /* Mobile button sizes */
+  .mobile-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Mobile grid adjustments */
+  .mobile-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  /* Mobile chat input */
+  .mobile-chat-input {
+    padding: 0.75rem;
+  }
+  
+  .mobile-chat-input .flex {
+    gap: 0.5rem;
   }
 }
 
@@ -264,6 +319,16 @@
   .glass-panel {
     backdrop-filter: blur(10px) saturate(140%);
     -webkit-backdrop-filter: blur(10px) saturate(140%);
+    margin: 0.25rem;
+  }
+  
+  /* Extra small mobile adjustments */
+  .xs-mobile-text {
+    font-size: 1.25rem;
+  }
+  
+  .xs-mobile-padding {
+    padding: 0.5rem;
   }
 }
 
