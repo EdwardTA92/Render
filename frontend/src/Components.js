@@ -564,7 +564,7 @@ const HomePage = ({
             Start building with
           </h2>
           <h3 className="text-3xl lg:text-6xl font-bold glitch-text text-green-400">
-            EMERGENT TODAY
+            RENDER TODAY
           </h3>
           <button className="glass-button-primary px-8 lg:px-12 py-3 lg:py-4 rounded-2xl text-lg lg:text-xl font-semibold">
             Get Started
